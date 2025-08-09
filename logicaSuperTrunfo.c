@@ -74,11 +74,15 @@ int main() {
     densidadePopulacionalA = (float)populacaoA / areaA;
     densidadePopulacionalB = (float)populacaoB / areaB;
 
+    float inversoDensidadeA = (densidadePopulacionalA != 0.0f) ? (1.0f / densidadePopulacionalA) : 0.0f;
+    float inversoDensidadeB = (densidadePopulacionalB != 0.0f) ? (1.0f / densidadePopulacionalB) : 0.0f;
+
     pibPerCapitaA = (float)(pibA * 1000000000.0) / populacaoA;
     pibPerCapitaB = (float)(pibB * 1000000000.0) / populacaoB;
 
-    superPoderA = (float)(populacaoA + areaA + pibA + pibPerCapitaA + pontosTuristicosA) + (1.0f / densidadePopulacionalA);
-    superPoderB = (float)(populacaoB + areaB + pibB + pibPerCapitaB + pontosTuristicosB) + (1.0f / densidadePopulacionalB);
+    superPoderA = (float)(populacaoA + areaA + pibA + pibPerCapitaA + pontosTuristicosA) + inversoDensidadeA;
+    superPoderB = (float)(populacaoB + areaB + pibB + pibPerCapitaB + pontosTuristicosB) + inversoDensidadeB;        
+
 
     // Exibindo os dados cadastrados
     printf("\n=== Cartas Cadastradas ===\n");
