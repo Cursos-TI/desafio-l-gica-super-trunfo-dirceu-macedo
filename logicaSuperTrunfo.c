@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 int main() {
-    char estadoA[4];              // Sigla de um dos 27 estados + DF
-    char codigoA[4];              // Ex: "A01", "B03"
     char nomeCidadeA[100];        // Nome da cidade
     unsigned long int populacaoA; // Número de habitantes
     float areaA;                  // Área em km²
@@ -12,8 +10,6 @@ int main() {
     float pibPerCapitaA;          // PIB per Capita
     float superPoderA;            // Super Poder
 
-    char estadoB[4];              // Sigla de um dos 27 estados + DF
-    char codigoB[4];              // Ex: "A01", "B03"
     char nomeCidadeB[100];        // Nome da cidade
     unsigned long int populacaoB; // Número de habitantes
     float areaB;                  // Área em km²
@@ -26,12 +22,7 @@ int main() {
     int atributoEscolhido;        // Atributo escolhido pelo jogador
 
     // Formulário
-    /*printf("=== Cadastro da Carta 1 ===\n");
-    printf("Estado (Ex: MG, SP): ");
-    scanf(" %3s", estadoA); 
-
-    printf("Código da Carta (ex: A01): ");
-    scanf("%3s", codigoA); */
+    printf("=== Cadastro da Carta 1 ===\n");
 
     printf("Nome da Cidade: ");
     scanf(" %99[^\n]", nomeCidadeA); // lê string com espaços 
@@ -49,11 +40,6 @@ int main() {
     scanf("%d", &pontosTuristicosA);
 
     printf("\n=== Cadastro da Carta 2 ===\n");
-    /*printf("Estado (Ex: MG, SP): ");
-    scanf(" %3s", estadoB);
-
-    printf("Código da Carta (ex: A01): ");
-    scanf("%3s", codigoB); */
 
     printf("Nome da Cidade: ");
     scanf(" %99[^\n]", nomeCidadeB);
@@ -84,8 +70,6 @@ int main() {
     printf("\n=== Cartas Cadastradas ===\n");
 
     printf("\nCarta 1:\n");
-    //printf("Estado: %s\n", estadoA);
-    //printf("Código: %s\n", codigoA);
     printf("Cidade: %s\n", nomeCidadeA);
     printf("População: %lu\n", populacaoA);
     printf("Área: %.2f km²\n", areaA);
@@ -96,8 +80,6 @@ int main() {
     printf("Super Poder: %.2f\n", superPoderA);
 
     printf("\nCarta 2:\n");
-    //printf("Estado: %s\n", estadoB);
-    //printf("Código: %s\n", codigoB);
     printf("Cidade: %s\n", nomeCidadeB);
     printf("População: %lu\n", populacaoB);
     printf("Área: %.2f km²\n", areaB);
