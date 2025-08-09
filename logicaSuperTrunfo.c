@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main() {
+    char estadoA[4];              // Sigla de um dos 27 estados + DF
+    char codigoA[4];              // Ex: "A01", "B03"
     char nomeCidadeA[100];        // Nome da cidade
     unsigned long int populacaoA; // Número de habitantes
     float areaA;                  // Área em km²
@@ -10,6 +12,8 @@ int main() {
     float pibPerCapitaA;          // PIB per Capita
     float superPoderA;            // Super Poder
 
+    char estadoB[4];              // Sigla de um dos 27 estados + DF
+    char codigoB[4];              // Ex: "A01", "B03"
     char nomeCidadeB[100];        // Nome da cidade
     unsigned long int populacaoB; // Número de habitantes
     float areaB;                  // Área em km²
@@ -23,6 +27,11 @@ int main() {
 
     // Formulário
     printf("=== Cadastro da Carta 1 ===\n");
+    printf("Estado (Ex: MG, SP): ");
+    scanf(" %3s", estadoA); // espaço antes do %s para ignorar lixo do buffer / "3" lê no máximo 3 caracteres
+
+    printf("Código da Carta (ex: A01): ");
+    scanf("%3s", codigoA); // Lê no máximo 3 caracteres (para 'A01\0'), garantindo espaço para o '\0'
 
     printf("Nome da Cidade: ");
     scanf(" %99[^\n]", nomeCidadeA); // lê string com espaços 
@@ -40,6 +49,11 @@ int main() {
     scanf("%d", &pontosTuristicosA);
 
     printf("\n=== Cadastro da Carta 2 ===\n");
+    printf("Estado (Ex: MG, SP): ");
+    scanf(" %3s", estadoB);
+
+    printf("Código da Carta (ex: A01): ");
+    scanf("%3s", codigoB);
 
     printf("Nome da Cidade: ");
     scanf(" %99[^\n]", nomeCidadeB);
@@ -70,6 +84,8 @@ int main() {
     printf("\n=== Cartas Cadastradas ===\n");
 
     printf("\nCarta 1:\n");
+    printf("Estado: %s\n", estadoA);
+    printf("Código: %s\n", codigoA);
     printf("Cidade: %s\n", nomeCidadeA);
     printf("População: %lu\n", populacaoA);
     printf("Área: %.2f km²\n", areaA);
@@ -80,6 +96,8 @@ int main() {
     printf("Super Poder: %.2f\n", superPoderA);
 
     printf("\nCarta 2:\n");
+    printf("Estado: %s\n", estadoB);
+    printf("Código: %s\n", codigoB);
     printf("Cidade: %s\n", nomeCidadeB);
     printf("População: %lu\n", populacaoB);
     printf("Área: %.2f km²\n", areaB);
@@ -97,6 +115,7 @@ int main() {
     printf("3. PIB \n");
     printf("4. Número de Pontos Turísticos\n");
     printf("5. Densidade Populacional\n");
+    printf("6. Super Poder\n");
     printf("Digite o atributo escolhido: \n");
     scanf("%d", &atributoEscolhido);
 
@@ -106,7 +125,7 @@ int main() {
     case 1:
     printf("**** %s X %s ****\n", nomeCidadeA, nomeCidadeB);
     printf("Atributo usado na comparação: População\n");
-    printf("População de %s: %.2lu habitantes X População de %s: %.2lu habitantes\n", nomeCidadeA, populacaoA, nomeCidadeB, populacaoB);
+    printf("População de %s: %lu habitantes X População de %s: %lu habitantes\n", nomeCidadeA, populacaoA, nomeCidadeB, populacaoB);
       if (populacaoA > populacaoB) {
         printf("Carta %s venceu!\n", nomeCidadeA);
     } else if (populacaoA < populacaoB) {
@@ -177,11 +196,24 @@ int main() {
     break;
     //fim Case 5
 
+    //Case 6
+    case 6:
+    printf("**** %s X %s ****\n", nomeCidadeA, nomeCidadeB);
+    printf("Atributo usado na comparação: Super Poder\n");
+    printf("Super Poder de %s: %.2f X Super Poder de %s: %.2f\n", nomeCidadeA, superPoderA, nomeCidadeB, superPoderB);
+      if (superPoderA > superPoderB) {
+        printf("Carta %s venceu!\n", nomeCidadeA);
+    } else if (superPoderA < superPoderB) {
+        printf("Carta %s venceu!\n", nomeCidadeB);
+    } else {
+      printf("Empate!\n");
+    }
+    break;
+    //fim Case 6
+
     default:
       printf("Opção inválida. Tente novamente.\n");
     }
-
-
 
     return 0;
 
